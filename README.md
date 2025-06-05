@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Beanly Coffee ☕
 
-## Getting Started
+**Beanly Coffee** is a modern eCommerce platform for specialty coffee lovers. Built with up-to-date technologies and a responsive design, it provides an intuitive and aesthetic shopping experience.
 
-First, run the development server:
+## 🚀 Technologies Used
+
+- **Next.js** – React framework for modern web applications
+- **Strapi** – Headless CMS for managing products and content
+- **Stripe** – Secure payment integration
+- **shadcn/ui** – Modern and accessible UI components
+- **Tailwind CSS** – Fast and efficient styling
+
+## 🎯 Features
+
+- Browse coffees by flavor profile (sweet, citric, etc.)
+- Product pages with detailed descriptions
+- Shopping cart and Stripe-powered checkout
+- "Favorites" system to save preferred products
+- Headless backend with Strapi for admin management
+- Responsive design for mobile and desktop
+
+## 📦 Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/frcampero/BeanlyCoffee.git
+cd beanly-coffee
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a `.env.local` file with your environment variables:
+
+```env
+STRIPE_SECRET_KEY=...
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=...
+STRAPI_API_URL=http://localhost:1337
+```
+
+4. Run the project:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧪 Backend (Strapi)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Set up the backend in the corresponding folder (or separate repo)
+- Create a "products" collection with fields like: name, description, flavor type, image, and price
+- Configure Stripe through the developers panel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT © 2025 Federico Campero
