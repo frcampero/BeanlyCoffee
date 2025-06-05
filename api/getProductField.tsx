@@ -1,29 +1,28 @@
 import { useEffect, useState } from "react";
 
-interface ProductField {
-  origin: {
-    enum: string[];
-  };
-}
-
 export function useGetProductField() {
-  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/content-type-builder/content-types/api::product.product`;
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?pagination[pageSize]=100`;
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [result, setResult] = useState<ProductField | null>(null);
+  const [result, setResult] = useState<{ origin: string[] } | null>(null);
 
   useEffect(() => {
     (async () => {
       try {
         const res = await fetch(url);
         const json = await res.json();
+        console.log("📦 Productos recibidos:", json.data);
 
-        // 🔍 Asegurate de acceder correctamente
-        const originField = json.data.schema.attributes.origin;
+        const origins = new Set<string>();
 
-        setResult({ origin: originField });
+        json.data.forEach((item: any) => {
+          const origin = item.origin;
+          if (origin) origins.add(origin);
+        });
+
+        setResult({ origin: Array.from(origins) });
       } catch (error: any) {
-        setError(error.message || "Error desconocido");
+        setError(error.message || "Unknown error");
       } finally {
         setLoading(false);
       }

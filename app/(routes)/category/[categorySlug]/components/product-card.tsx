@@ -42,15 +42,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <div className="relative overflow-hidden aspect-[3/4]">
         <Carousel opts={{ align: "start" }} className="w-full h-full">
           <CarouselContent>
-            {product.images.map((image) => (
-              <CarouselItem key={image.id} className="w-full h-full">
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
-                  alt="Product Image"
-                  className="w-full h-full object-cover"
-                />
-              </CarouselItem>
-            ))}
+            {Array.isArray(product.images) &&
+              product.images.map((image) => (
+                <CarouselItem key={image.id} className="w-full h-full">
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
+                    alt="Product Image"
+                    className="w-full h-full object-cover"
+                  />
+                </CarouselItem>
+              ))}
           </CarouselContent>
         </Carousel>
       </div>
@@ -79,7 +80,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <div className="mt-4 px-4 sm:px-6 w-full">
         <Button
           onClick={(e) => {
-            e.stopPropagation(); 
+            e.stopPropagation();
             addItem(product);
           }}
           className="w-full cursor-pointer rounded-none bg-[#d7c1ad] text-white hover:bg-[#c3ac98] flex flex-col items-center justify-center gap-1 px-4 py-2 text-sm font-medium text-center"
