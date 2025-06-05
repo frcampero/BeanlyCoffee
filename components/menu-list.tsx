@@ -13,36 +13,36 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-
-
 const MenuList = () => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="cursor-pointer">About us</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="cursor-pointer">
+            About us
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
-                <a
-                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#EBDACB] to-white p-6 no-underline outline-none focus:shadow-md"
+                <Link
                   href="/"
+                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#EBDACB] to-white p-6 no-underline outline-none focus:shadow-md"
                 >
                   <div className="mb-2 mt-4 text-lg font-medium">
                     Beanly Coffee
                   </div>
                   <p className="text-sm leading-tight text-muted-foreground">
-                    Immerse yourself in the exciting world of coffee with our website specializing in the sale of high-quality coffee beans, both ground and in capsules.
+                    Immerse yourself in the exciting world of coffee...
                   </p>
-                </a>
+                </Link>
               </li>
-              <ListItem href="/" title="Tienda">
+              <ListItem href="/" title="Shop">
                 Access all your information, orders, and more.
               </ListItem>
-              <ListItem href="/" title="Ofertas">
+              <ListItem href="/" title="Offers">
                 Selection dedicated to promotions and special discounts.
               </ListItem>
-              <ListItem href="/" title="Accesorios">
+              <ListItem href="/" title="Accessories">
                 Complementary products such as cups, grinders, presses, etc.
               </ListItem>
             </ul>
@@ -50,7 +50,9 @@ const MenuList = () => {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="cursor-pointer">Coffee</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="cursor-pointer">
+            Coffee
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
@@ -76,13 +78,11 @@ const MenuList = () => {
   );
 };
 
-
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Coffee Bean",
     href: "/category/grano",
-    description:
-      "Whole coffee beans that require grinding before brewing.",
+    description: "Whole coffee beans that require grinding before brewing.",
   },
   {
     title: "Ground Coffee",
@@ -95,31 +95,37 @@ const components: { title: string; href: string; description: string }[] = [
     href: "/category/capsula",
     description:
       "Coffee packaged in individual capsules, offering convenience and consistency in preparation.",
-  }
+  },
 ];
 
 export default MenuList;
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+const ListItem = ({
+  className,
+  title,
+  children,
+  href,
+}: {
+  className?: string;
+  title: string;
+  children: React.ReactNode;
+  href: string;
+}) => {
   return (
     <li>
-      <a
-        ref={ref}
+      <Link
+        href={href}
         className={cn(
           "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#EBDACB]",
           className
         )}
-        {...props}
       >
         <div className="text-sm font-medium leading-none">{title}</div>
         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
           {children}
         </p>
-      </a>
+      </Link>
     </li>
   );
-});
+};
 ListItem.displayName = "ListItem";

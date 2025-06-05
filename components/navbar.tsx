@@ -19,17 +19,17 @@ const Navbar = () => {
         Beanly<span className="font-bold">Coffee</span>
       </h1>
 
-      {/* Menú de escritorio */}
+      {/* Desktop Menu */}
       <div className="items-center justify-between hidden sm:flex">
         <MenuList />
       </div>
 
-      {/* Menú hamburguesa en mobile */}
+      {/* Hamburger Menu */}
       <div className="flex sm:hidden ml-auto">
         <ItemsMenuMobile />
       </div>
 
-      {/* Íconos: solo visibles desde sm en adelante */}
+      {/* Icons */}
       <div className="hidden sm:flex items-center justify-between gap-2 sm:gap-7">
         {cart.items.length === 0 ? (
           <ShoppingCart

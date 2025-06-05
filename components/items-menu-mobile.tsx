@@ -37,7 +37,7 @@ const ItemsMenuMobile = () => {
         </SheetHeader>
 
         <div className="mt-6 flex flex-col gap-6">
-          {/* Productos */}
+          {/* Products */}
           <div>
             <p className="text-sm font-semibold mb-2">Products</p>
             <ul className="ml-2 space-y-1 text-sm text-gray-700">
@@ -62,7 +62,7 @@ const ItemsMenuMobile = () => {
             </ul>
           </div>
 
-          {/* Mi carrito */}
+          {/* Cart */}
           <div
             className="flex items-center gap-2 cursor-pointer hover:underline"
             onClick={() => handleNavigate("/cart")}
@@ -71,7 +71,7 @@ const ItemsMenuMobile = () => {
             <span className="text-sm">Cart</span>
           </div>
 
-          {/* Me gusta */}
+          {/* Liked */}
           <div
             className="flex items-center gap-2 cursor-pointer hover:underline"
             onClick={() => handleNavigate("/loved-product")}

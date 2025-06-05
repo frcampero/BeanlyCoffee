@@ -1,7 +1,7 @@
 "use client";
 import useGetCategoryProduct from "@/api/getCategoryProduct";
 import { Separator } from "@/components/ui/separator";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import FiltersControlsCategory from "./components/filters-controls-category";
 import SkeletonSchema from "@/components/skeletonSchema";
 import ProductCard from "./components/product-card";
@@ -13,7 +13,6 @@ export default function Page() {
   const categorySlug = params?.categorySlug as string;
   const { result, loading } = useGetCategoryProduct(categorySlug);
   const [filterOrigin, setFilterOrigin] = useState("");
-  const router = useRouter();
 
   const filteredProducts: ProductType[] =
     !loading && result

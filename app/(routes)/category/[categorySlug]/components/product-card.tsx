@@ -38,7 +38,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       "
       onClick={() => router.push(`/product/${product.slug}`)}
     >
-      {/* Carrusel */}
+      {/* Carousel */}
       <div className="relative overflow-hidden aspect-[3/4]">
         <Carousel opts={{ align: "start" }} className="w-full h-full">
           <CarouselContent>
@@ -55,7 +55,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </Carousel>
       </div>
 
-      {/* Etiquetas */}
+      {/* labels */}
       <div className="flex justify-center gap-2 px-4 sm:px-6">
         <span className="bg-[#d7c1ad] text-white text-xs px-2 py-1">
           {product.taste}
@@ -65,7 +65,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </span>
       </div>
 
-      {/* Nombre y precio */}
+      {/* Product name & Price */}
       <div className="text-center mt-4 px-4 sm:px-6">
         <p className="text-base sm:text-lg font-semibold hover:underline">
           {product.productName}
@@ -75,7 +75,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </p>
       </div>
 
-      {/* Botón agregar al carrito */}
+      {/* Button add cart */}
       <div className="mt-4 px-4 sm:px-6 w-full">
         <Button
           onClick={(e) => {

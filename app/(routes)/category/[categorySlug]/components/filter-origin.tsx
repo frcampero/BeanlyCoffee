@@ -13,7 +13,7 @@ const FilterOrigin = (props: FiltersOriginProps) => {
   return (
     <div className="my-5">
       <p className="mb-3 font-bold">Origin</p>
-      {loading && result == null && <p>Loading data...</p>}
+      {loading && result == null && <p>Loading products...</p>}
 
       <RadioGroup  onValueChange={(value) => setFilterOrigin(value)}>
         {result !== null &&
