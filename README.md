@@ -1,59 +1,84 @@
-# Beanly Coffee ☕
+# ☕ Beanly Coffee – E-commerce Platform
 
-**Beanly Coffee** is a modern eCommerce platform for specialty coffee lovers. Built with up-to-date technologies and a responsive design, it provides an intuitive and aesthetic shopping experience.
+Beanly Coffee is a modern and elegant e-commerce web app designed for coffee lovers. Built with a full-stack architecture using **Strapi (backend)**, **PostgreSQL (database)**, and **Next.js (frontend)**, it offers a smooth shopping experience with real-time product data and secure payment integration.
 
-## 🚀 Technologies Used
+---
 
-- **Next.js** – React framework for modern web applications
-- **Strapi** – Headless CMS for managing products and content
-- **Stripe** – Secure payment integration
-- **shadcn/ui** – Modern and accessible UI components
-- **Tailwind CSS** – Fast and efficient styling
+## 🌐 Live Demo
 
-## 🎯 Features
+👉 Frontend: [https://beanly-coffee-indol.vercel.app](https://beanly-coffee-indol.vercel.app)  
+👉 Backend (Strapi Admin): Private (hosted on Render)  
+👉 Database: PostgreSQL hosted on Railway
 
-- Browse coffees by flavor profile (sweet, citric, etc.)
-- Product pages with detailed descriptions
-- Shopping cart and Stripe-powered checkout
-- "Favorites" system to save preferred products
-- Headless backend with Strapi for admin management
-- Responsive design for mobile and desktop
+---
 
-## 📦 Installation
+## ✨ Features
 
-1. Clone the repository:
+- 🛒 View featured coffee products by category
+- 🔍 Filter by taste or origin (sweet, citric, etc.)
+- 🖼️ Dynamic image loading via Strapi Media Library
+- 💳 Stripe Checkout integration (test mode)
+- ⚙️ Connected to a real backend (Strapi) with PostgreSQL
+- 📱 Responsive UI with smooth animations
 
-```bash
-git clone https://github.com/frcampero/BeanlyCoffee.git
-cd beanly-coffee
-```
+---
+
+## 🧪 Tech Stack
+
+- **Frontend**: Next.js 14, Tailwind CSS, TypeScript
+- **Backend**: Strapi v5 (Node.js Headless CMS)
+- **Database**: PostgreSQL (via Railway)
+- **Hosting**:
+  - Frontend: Vercel
+  - Backend: Render
+- **Payments**: Stripe (Test Mode)
+
+---
+
+## ⚠️ Notes
+
+- This project is hosted on free-tier services.  
+  The **backend may take a few seconds to wake up** after inactivity.
+- Stripe payments are in **test mode** (no real charges).
+
+---
+
+## 🧑‍💻 Developer
+
+**Federico Campero** – Full Stack Developer in progress  
+[LinkedIn](https://www.linkedin.com/in/camperofederico/)  
+[GitHub](https://github.com/frcampero)
+
+---
+
+## 🚀 How to Run Locally
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/frcampero/beanly-coffee.git
+   ```
 
 2. Install dependencies:
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-```bash
-npm install
-```
+3. Create a `.env.local` file:
+   ```
+   NEXT_PUBLIC_BACKEND_URL=https://beanlycoffee-be.onrender.com
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_key_here
+   ```
 
-3. Create a `.env.local` file with your environment variables:
+4. Run locally:
+   ```bash
+   npm run dev
+   ```
 
-```env
-STRIPE_SECRET_KEY=...
-NEXT_PUBLIC_STRIPE_PUBLIC_KEY=...
-STRAPI_API_URL=http://localhost:1337
-```
+---
 
-4. Run the project:
+## 📦 Future Improvements
 
-```bash
-npm run dev
-```
-
-## 🧪 Backend (Strapi)
-
-- Set up the backend in the corresponding folder (or separate repo)
-- Create a "products" collection with fields like: name, description, flavor type, image, and price
-- Configure Stripe through the developers panel
-
-## 📄 License
-
-MIT © 2025 Federico Campero
+- 🐾 User authentication & order history
+- 🧠 Product recommendations
+- 🌍 Multilingual support
