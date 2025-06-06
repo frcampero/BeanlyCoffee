@@ -3,7 +3,11 @@ export type CategoryType = {
   categoryName: string;
   slug: string;
   mainImage: {
-    url: string;
-    [key: string]: any;
+    data: {
+      attributes: {
+        url: string;
+        [key: string]: any;
+      };
+    };
   };
 };

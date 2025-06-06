@@ -18,12 +18,14 @@ const ChooseCategory = () => {
         {!loading &&
           Array.isArray(result) &&
           result.map((category: CategoryType) => {
-            if (!category.slug || !category.mainImage?.url) {
+            const imageUrl =
+              category.mainImage?.data?.attributes?.url &&
+              `${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.data.attributes.url}`;
+
+            if (!category.slug || !imageUrl) {
               console.warn("Categoría con datos incompletos:", category);
               return null;
             }
-
-            const imageUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.url}`;
 
             return (
               <Link
@@ -36,7 +38,7 @@ const ChooseCategory = () => {
                   alt={category.categoryName}
                   width={270}
                   height={270}
-                  className="transition duration-300 ease-in-out hover:scale-110"
+                  className="transition duration-300 ease-in-out hover:scale-110 object-cover"
                 />
                 <p className="absolute w-full py-2 text-lg font-bold text-center text-white bottom-6 backdrop-blur-lg">
                   {category.categoryName}
