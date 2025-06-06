@@ -19,8 +19,8 @@ const ChooseCategory = () => {
           Array.isArray(result) &&
           result.map((category: CategoryType) => {
             const imageUrl =
-              category.mainImage?.data?.attributes?.url &&
-              `${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.data.attributes.url}`;
+              category.mainImage?.url &&
+              `${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.url}`;
 
             if (!category.slug || !imageUrl) {
               console.warn("Categoría con datos incompletos:", category);
