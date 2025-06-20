@@ -6,6 +6,12 @@ import { ResponseType } from "@/types/response";
 import Link from "next/link";
 import Image from "next/image";
 
+const localImages: Record<string, string> = {
+  capsula: "/images/capsula.png",
+  grano: "/images/granos.png",
+  molido: "/images/molido.png",
+};
+
 const ChooseCategory = () => {
   const { result, loading } = useGetCategory() as ResponseType;
 
@@ -18,12 +24,19 @@ const ChooseCategory = () => {
         {!loading &&
           Array.isArray(result) &&
           result.map((category: CategoryType) => {
-            const imageUrl =
-              category.mainImage?.url &&
-              `${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.url}`;
+            if (!category.slug) {
+              console.warn("Categoría sin slug:", category);
+              return null;
+            }
 
-            if (!category.slug || !imageUrl) {
-              console.warn("Categoría con datos incompletos:", category);
+            const isLocal = localImages.hasOwnProperty(category.slug);
+            const imageUrl = isLocal
+              ? localImages[category.slug]
+              : category.mainImage?.url &&
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.url}`;
+
+            if (!imageUrl) {
+              console.warn("Categoría sin imagen:", category);
               return null;
             }
 
