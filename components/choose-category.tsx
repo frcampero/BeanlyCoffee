@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const localImages: Record<string, string> = {
   capsula: "/images/capsula.png",
-  grano: "/images/granos.png",
+  grano: "/images/grano.png",
   molido: "/images/molido.png",
 };
 
